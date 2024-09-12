@@ -10,6 +10,7 @@ import CustomButton from '@/components/CustomButton';
 const Welcome = () => {
   const swiperRef = useRef<Swiper>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
   const isLastSlide = activeIndex === onboarding.length - 1;
 
   return (
@@ -27,14 +28,12 @@ const Welcome = () => {
         ref={swiperRef}
         loop={false}
         dot={
-          <View className="m-[32px] h-[4px] mx-1 bg-primary-800 rounded-full" />
+          <View className="w-[32px] h-[4px] mx-1 bg-secondary-300 rounded-full" />
         }
         activeDot={
-          <View className="m-[32px] h-[4px] mx-1 bg-success-800 rounded-full" />
+          <View className="w-[32px] h-[4px] mx-1 bg-primary-500 rounded-full" />
         }
-        onIndexChanged={(index) => {
-          setActiveIndex(index);
-        }}
+        onIndexChanged={(index) => setActiveIndex(index)}
       >
         {onboarding.map((item) => (
           <View key={item.id} className="flex items-center justify-center p-5">
