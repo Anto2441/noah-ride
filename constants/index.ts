@@ -1,11 +1,28 @@
+// Icons
+import email from '@/assets/icons/email.png';
+import lock from '@/assets/icons/lock.png';
+import google from '@/assets/icons/google.png';
+import person from '@/assets/icons/person.png';
+
+// Images
 import onboarding1 from '@/assets/images/onboarding1.jpg';
 import onboarding2 from '@/assets/images/onboarding2.jpg';
 import onboarding3 from '@/assets/images/onboarding3.jpg';
+import sign from '@/assets/images/sign.jpg';
+
+export const icons = {
+  email,
+  google,
+  lock,
+  person,
+};
 
 export const images = {
+  email,
   onboarding1,
   onboarding2,
   onboarding3,
+  sign,
 };
 
 export const onboarding = [
