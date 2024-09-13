@@ -5,6 +5,7 @@ import google from '@/assets/icons/google.png';
 import person from '@/assets/icons/person.png';
 
 // Images
+import check from '@/assets/images/check.png';
 import onboarding1 from '@/assets/images/onboarding1.jpg';
 import onboarding2 from '@/assets/images/onboarding2.jpg';
 import onboarding3 from '@/assets/images/onboarding3.jpg';
@@ -18,6 +19,7 @@ export const icons = {
 };
 
 export const images = {
+  check,
   email,
   onboarding1,
   onboarding2,
