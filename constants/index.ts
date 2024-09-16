@@ -1,8 +1,12 @@
 // Icons
+import chat from '@/assets/icons/chat.png';
 import email from '@/assets/icons/email.png';
+import home from '@/assets/icons/home.png';
+import list from '@/assets/icons/list.png';
 import lock from '@/assets/icons/lock.png';
 import google from '@/assets/icons/google.png';
 import person from '@/assets/icons/person.png';
+import profile from '@/assets/icons/profile.png';
 
 // Images
 import check from '@/assets/images/check.png';
@@ -12,10 +16,14 @@ import onboarding3 from '@/assets/images/onboarding3.jpg';
 import sign from '@/assets/images/sign.jpg';
 
 export const icons = {
+  chat,
   email,
+  home,
   google,
+  list,
   lock,
   person,
+  profile,
 };
 
 export const images = {
