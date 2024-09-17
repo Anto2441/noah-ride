@@ -8,6 +8,7 @@ import CustomButton from '@/components/CustomButton';
 import InputField from '@/components/InputField';
 import Oauth from '@/components/OAuth';
 import { icons, images } from '@/constants';
+import { fetchAPI } from '@/lib/fetch';
 
 const SignUp = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -54,7 +55,15 @@ const SignUp = () => {
       });
 
       if (completeSignUp.status === 'complete') {
-        // TODO: Create a database user!
+        await fetchAPI('/(api)/user', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            clerkId: completeSignUp.createdUserId,
+          }),
+        });
+
         await setActive({ session: completeSignUp.createdSessionId });
         setVerification({ ...verification, state: 'success' });
       } else {
@@ -74,11 +83,14 @@ const SignUp = () => {
   };
 
   return (
-    <ScrollView className="flex-1 bg-white">
+    <ScrollView
+      className="flex-1 bg-white"
+      automaticallyAdjustKeyboardInsets={true}
+    >
       <View className="flex-1 bg-white">
-        <View className="relative w-full h-[250px]">
-          <Image source={images.sign} className="z-0 w-full h-[250px]" />
-          <Text className="text-2xl text-black font-JakartaSemiBold absolute bottom-3 left-5">
+        <View className="relative h-[250px] w-full">
+          <Image source={images.sign} className="z-0 h-[250px] w-full" />
+          <Text className="absolute bottom-3 left-5 font-JakartaSemiBold text-2xl text-black">
             Create your account
           </Text>
         </View>
@@ -119,7 +131,7 @@ const SignUp = () => {
 
           <Link
             href="/sign-in"
-            className="text-lg text-center text-general-200 mt-8"
+            className="mt-8 text-center text-lg text-general-200"
           >
             Already have an account ?{' '}
             <Text className="text-primary-500">Log In</Text>
@@ -132,11 +144,11 @@ const SignUp = () => {
             if (verification.state === 'success') setShowSuccessModal(true);
           }}
         >
-          <View className="bg-white px-7 py-9 rounded-2xl min-h-[300px]">
-            <Text className="font-JakartaExtraBold text-2xl mb-2">
+          <View className="min-h-[300px] rounded-2xl bg-white px-7 py-9">
+            <Text className="mb-2 font-JakartaExtraBold text-2xl">
               Verification
             </Text>
-            <Text className="font-Jakarta mb-5">
+            <Text className="mb-5 font-Jakarta">
               We've sent a verification code to {form.email}.
             </Text>
             <InputField
@@ -150,7 +162,7 @@ const SignUp = () => {
               }
             />
             {verification.error && (
-              <Text className="text-red-500 text-sm mt-1">
+              <Text className="mt-1 text-sm text-red-500">
                 {verification.error}
               </Text>
             )}
@@ -163,15 +175,15 @@ const SignUp = () => {
         </ReactNativeModal>
 
         <ReactNativeModal isVisible={showSuccessModal}>
-          <View className="bg-white px-7 py-9 rounded-2xl min-h-[300px]">
+          <View className="min-h-[300px] rounded-2xl bg-white px-7 py-9">
             <Image
               source={images.check}
-              className="w-[110px] h-[110px] mx-auto my-5"
+              className="mx-auto my-5 h-[110px] w-[110px]"
             ></Image>
-            <Text className="text-3xl font-JakartaBold text-center">
+            <Text className="text-center font-JakartaBold text-3xl">
               Verified
             </Text>
-            <Text className="text-base text-gray-400 font-Jakarta text-center mt-2">
+            <Text className="mt-2 text-center font-Jakarta text-base text-gray-400">
               You have successfully verified your account.
             </Text>
             <CustomButton
