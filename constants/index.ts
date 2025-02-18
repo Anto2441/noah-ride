@@ -5,14 +5,18 @@ import home from '@/assets/icons/home.png';
 import list from '@/assets/icons/list.png';
 import lock from '@/assets/icons/lock.png';
 import google from '@/assets/icons/google.png';
+import out from '@/assets/icons/out.png';
 import person from '@/assets/icons/person.png';
+import point from '@/assets/icons/point.png';
 import profile from '@/assets/icons/profile.png';
+import to from '@/assets/icons/to.png';
 
 // Images
 import check from '@/assets/images/check.png';
 import onboarding1 from '@/assets/images/onboarding1.jpg';
 import onboarding2 from '@/assets/images/onboarding2.jpg';
 import onboarding3 from '@/assets/images/onboarding3.jpg';
+import noResult from '@/assets/images/no-result.png';
 import sign from '@/assets/images/sign.jpg';
 
 export const icons = {
@@ -22,13 +26,17 @@ export const icons = {
   google,
   list,
   lock,
+  out,
   person,
+  point,
   profile,
+  to,
 };
 
 export const images = {
   check,
   email,
+  noResult,
   onboarding1,
   onboarding2,
   onboarding3,

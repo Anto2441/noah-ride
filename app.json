@@ -32,7 +32,9 @@
         {
           "origin": "https://noah-ride.com/"
         }
-      ]
+      ],
+      "expo-font",
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true
