@@ -16,22 +16,22 @@ const Welcome = () => {
   return (
     <SafeAreaView className="flex h-full items-center justify-between bg-white">
       <TouchableOpacity
-        className="w-full flex justify-end items-end p-5"
+        className="flex w-full items-end justify-end p-5"
         onPress={() => {
           router.replace('/(auth)/sign-up');
         }}
       >
-        <Text className="text-black text-md font-JakartaBold">Skip</Text>
+        <Text className="text-md font-JakartaBold text-black">Skip</Text>
       </TouchableOpacity>
 
       <Swiper
         ref={swiperRef}
         loop={false}
         dot={
-          <View className="w-[32px] h-[4px] mx-1 bg-secondary-300 rounded-full" />
+          <View className="mx-1 h-[4px] w-[32px] rounded-full bg-secondary-300" />
         }
         activeDot={
-          <View className="w-[32px] h-[4px] mx-1 bg-primary-500 rounded-full" />
+          <View className="mx-1 h-[4px] w-[32px] rounded-full bg-primary-500" />
         }
         onIndexChanged={(index) => setActiveIndex(index)}
       >
@@ -39,15 +39,15 @@ const Welcome = () => {
           <View key={item.id} className="flex items-center justify-center p-5">
             <Image
               source={item.image}
-              className="w-full h-[300px]"
+              className="h-[300px] w-full"
               resizeMode="contain"
             />
-            <View className="flex flex-row items-center justify-center w-full mt-10">
-              <Text className="text-black text-3xl font-bold mx-10 text-center">
+            <View className="mt-10 flex w-full flex-row items-center justify-center">
+              <Text className="mx-10 text-center text-3xl font-bold text-black">
                 {item.title}
               </Text>
             </View>
-            <Text className="text-md font-JakartaSemiBold text-center text-general-200 mx-10 mt-3">
+            <Text className="text-md mx-10 mt-3 text-center font-JakartaSemiBold text-general-200">
               {item.description}
             </Text>
           </View>
@@ -61,7 +61,7 @@ const Welcome = () => {
             ? router.replace('/(auth)/sign-up')
             : swiperRef.current?.scrollBy(1)
         }
-        className="w-11/12 mt-10 mb-5"
+        className="mb-5 mt-10 w-11/12"
       />
     </SafeAreaView>
   );
